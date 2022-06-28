@@ -1,1 +1,1 @@
-# hello-square-app
+# hello-math-app
