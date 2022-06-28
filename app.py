@@ -23,8 +23,9 @@ class Hello(Resource):
   
     # Corresponds to POST request
     def post(self):
-        json_data = request.get_json(force=True)
-        return jsonify({'data': json_data}), 201
+        data = request.get_json(force=True)
+        #return jsonify({'data': json_data}), 201
+        return data
   
   
 # another resource to calculate the square of a number
