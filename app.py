@@ -43,7 +43,7 @@ class Multiply(Resource):
 
 
 # adding the defined resources along with their corresponding urls
-api.add_resource(Hello, '/')
+api.add_resource(Hello, '/init')
 api.add_resource(Square, '/square/<int:num>')
 api.add_resource(Multiply, '/multiply')
 

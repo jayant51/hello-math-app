@@ -1,16 +1,14 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "HelloWorld-Python-app"
-  version: "1.0.1"
-  title: "HelloWorld-Python-app"
-host: "python-basic-openshift.itzroks-663002b1mb-xbphnt-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
-schemes:
-- "http"
-- "https"
+  title: CreateCustomerDetails
+  version: 0.0.1
+  description: CreateCustomerDetails
+  x-ibm-name: createcustomerdetails
 paths:
-  /:
+  /init:
     get:
-      operationId: "helloWorldEvent"
+      description: Hello World app
+      operationId: helloworld
       consumes:
       - "application/json"
       produces:
@@ -22,3 +20,77 @@ paths:
           description: "Invalid input"
         "404":
           description: "Not Found"
+    post:
+      description: Hello World app
+      operationId: create
+      consumes:
+      - "application/text"
+      produces:
+      - "application/text"
+      responses:
+        "200":
+          description: "Success"
+  /multiply:
+    post:
+      operationId: multiplyNumbers
+      responses:
+        '200':
+          description: The operation was successful.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      description: Multiply two Numbers
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: '#/definitions/numbers'
+          description: The request body for the operation
+          required: true
+  /square/5:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Not Found"
+definitions:
+  numbers:
+    type: object
+    properties:
+      num1:
+        type: integer
+      num2:
+        type: integer
+schemes:
+  - http
+  - https
+x-ibm-configuration:
+  type: rest
+  phase: realized
+  enforced: true
+  testable: true
+  cors:
+    enabled: true
+securityDefinitions:
+  X-IBM-Client-Id:
+    type: apiKey
+    name: X-IBM-Client-Id
+    x-key-type: client_id
+    in: header
+  X-IBM-Client-Secret:
+    type: apiKey
+    name: X-IBM-Client-Secret
+    x-key-type: client_secret
+    in: header
+security:
+  - X-IBM-Client-Id: []
+    X-IBM-Client-Secret: []
+host: hello-math-app-git-openshift.itzroks-663002b1mb-xbphnt-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud
