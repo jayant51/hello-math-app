@@ -1,0 +1,24 @@
+swagger: "2.0"
+info:
+  description: "HelloWorld-Python-app"
+  version: "1.0.1"
+  title: "HelloWorld-Python-app"
+host: "python-basic-openshift.itzroks-663002b1mb-xbphnt-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+schemes:
+- "http"
+- "https"
+paths:
+  /:
+    get:
+      operationId: "helloWorldEvent"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Not Found"
