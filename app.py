@@ -19,12 +19,12 @@ class Hello(Resource):
     # is a GET request for this resource
     def get(self):
   
-        return jsonify({'message': 'hello world'})
+        return jsonify({'message': 'hello math world'})
   
     # Corresponds to POST request
     def post(self):
-        data = request.get_json()     # status code
-        return jsonify({'data': data}), 201
+        json_data = request.get_json(force=True)
+        return jsonify({'data': json_data}), 201
   
   
 # another resource to calculate the square of a number
