@@ -18,7 +18,8 @@ class Hello(Resource):
     # this function is called whenever there
     # is a GET request for this resource
     def get(self):
-  
+        response = jsonify(message=" **hello math world** server is running")
+        response.headers.add("Access-Control-Allow-Origin", "*")
         return jsonify({'message': 'hello math world'})
   
     # Corresponds to POST request

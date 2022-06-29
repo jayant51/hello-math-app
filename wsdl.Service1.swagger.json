@@ -1,0 +1,99 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Service1",
+        "version": "1.0"
+    },
+    "host": "apim-walgreens-api.azure-api.net",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/": {
+            "post": {
+                "operationId": "62bbaee946346112b01bdbf6",
+                "summary": "HelloWorld",
+                "parameters": [
+                    {
+                        "name": "helloWorld",
+                        "in": "body",
+                        "schema": {
+                            "example": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <Body>\r\n    <HelloWorld xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://localhost/WebService/\" />\r\n  </Body>\r\n</Envelope>"
+                        },
+                        "description": "HelloWorldSoapIn"
+                    }
+                ],
+                "consumes": [
+                    "text/xml"
+                ],
+                "produces": [
+                    "text/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "HelloWorldSoapOut",
+                        "examples": {
+                            "text/xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <Body>\r\n    <HelloWorldResponse xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://localhost/WebService/\">\r\n      <HelloWorldResult>HelloWorldResult1</HelloWorldResult>\r\n    </HelloWorldResponse>\r\n  </Body>\r\n</Envelope>"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [],
+    "x-ms-paths": {
+        "/?soapAction=http://localhost/WebService/SayHello": {
+            "post": {
+                "operationId": "62bbaee946346112b01bdbf7",
+                "summary": "SayHello",
+                "parameters": [
+                    {
+                        "name": "sayHello",
+                        "in": "body",
+                        "schema": {
+                            "example": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <Body>\r\n    <SayHello xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://localhost/WebService/\">\r\n      <name>name1</name>\r\n    </SayHello>\r\n  </Body>\r\n</Envelope>"
+                        },
+                        "description": "SayHelloSoapIn"
+                    }
+                ],
+                "consumes": [
+                    "text/xml"
+                ],
+                "produces": [
+                    "text/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SayHelloSoapOut",
+                        "examples": {
+                            "text/xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <Body>\r\n    <SayHelloResponse xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://localhost/WebService/\">\r\n      <SayHelloResult>SayHelloResult1</SayHelloResult>\r\n    </SayHelloResponse>\r\n  </Body>\r\n</Envelope>"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "x-ms-export-notes": [
+        "The exported API contains schemas that aren't of content type 'application/vnd.ms-azure-apim.swagger.definitions+json', and are hence not exported as Swagger definitions."
+    ]
+}
