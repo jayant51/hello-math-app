@@ -1,0 +1,24 @@
+securityDefinitions:
+  apiKeyHeader:
+    type: apiKey
+    name: Ocp-Apim-Subscription-Key
+    in: header
+  X-IBM-Client-Id:
+    type: apiKey
+    name: X-IBM-Client-Id
+    x-key-type: client_id
+    in: header
+  X-IBM-Client-Secret:
+    type: apiKey
+    name: X-IBM-Client-Secret
+    x-key-type: client_secret
+    in: header
+  apiKeyQuery:
+    type: apiKey
+    name: subscription-key
+    in: query
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+- X-IBM-Client-Id: []
+- X-IBM-Client-Secret: []

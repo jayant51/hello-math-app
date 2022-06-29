@@ -1,0 +1,83 @@
+---
+swagger: '2.0'
+info:
+  title: Hello Math World
+  version: '1.0'
+  description: helloMathWorld
+host: apim-walgreens-api.azure-api.net
+basePath: "/math"
+schemes:
+- http
+- https
+paths:
+  /init:
+    get:
+      description: Hello math World app
+      operationId: helloworld
+      summary: helloworld
+      parameters:
+      - name: Ocp-Apim-Subscription-Key
+        in: header
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+        '405':
+          description: Invalid input
+    post:
+      description: Hello math World app
+      operationId: create
+      summary: create
+      produces:
+      - application/text
+      responses:
+        '200':
+          description: Success
+  "/multiply":
+    post:
+      description: Multiply two Numbers
+      operationId: multiplyNumbers
+      summary: multiplyNumbers
+      parameters:
+      - name: numbers
+        in: body
+        schema:
+          "$ref": "#/definitions/numbers"
+        description: The request body for the operation
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The operation was successful.
+  "/square/5":
+    get:
+      operationId: get-square-5
+      summary: "/square/5 - GET"
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+        '405':
+          description: Invalid input
+definitions:
+  numbers:
+    type: object
+    properties:
+      num1:
+        type: integer
+      num2:
+        type: integer
+    example:
+      num1: 0
+      num2: 0
+tags: []

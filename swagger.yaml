@@ -1,13 +1,13 @@
 swagger: '2.0'
 info:
-  title: CreateCustomerDetails
+  title: Hello Math World
   version: 0.0.1
-  description: CreateCustomerDetails
-  x-ibm-name: createcustomerdetails
+  description: helloMathWorld
+  x-ibm-name: helloMathWorld
 paths:
   /init:
     get:
-      description: Hello World app
+      description: Hello math World app
       operationId: helloworld
       consumes:
       - "application/json"
@@ -21,7 +21,7 @@ paths:
         "404":
           description: "Not Found"
     post:
-      description: Hello World app
+      description: Hello math World app
       operationId: create
       consumes:
       - "application/text"
@@ -71,7 +71,6 @@ definitions:
         type: integer
 schemes:
   - http
-  - https
 x-ibm-configuration:
   type: rest
   phase: realized
