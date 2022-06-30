@@ -20,7 +20,8 @@ class Hello(Resource):
     def get(self):
         response = jsonify(message=" **hello math world** server is running")
         response.headers.add("Access-Control-Allow-Origin", "*")
-        return jsonify({'message': 'hello math world'})
+        #return jsonify({'message': 'hello math world'})
+        return response
   
     # Corresponds to POST request
     def post(self):
