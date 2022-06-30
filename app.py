@@ -1,10 +1,12 @@
 # using flask_restful
 from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
+from flask_cors import CORS
 import os
   
 # creating the flask app
 app = Flask(__name__)
+CORS(app) 
 # creating an API object
 api = Api(app)
   
@@ -19,7 +21,7 @@ class Hello(Resource):
     # is a GET request for this resource
     def get(self):
         response = jsonify(message=" **hello math world** server is running")
-        response.headers.add("Access-Control-Allow-Origin", "*")
+        response.headers.add('Access-Control-Allow-Origin', '*')
         #return jsonify({'message': 'hello math world'})
         return response
   
